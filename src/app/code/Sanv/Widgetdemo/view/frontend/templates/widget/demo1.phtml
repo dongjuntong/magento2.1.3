@@ -1,0 +1,12 @@
+<a href="<?php echo $this->getHref();?>" class="card card--brand" title="<?php echo $this->getTitle();?>" alt="<?php echo $this->getshortDesc();?>">
+    <div class="card-block">
+        <h4 class="card-title"><?php echo $this->getTitle();?></h4>
+        <p class="card-text"><?php echo $this->getshortDesc();?></p>
+    </div>
+    <div class="card-img-top">
+        <img class="lazy" src="<?php echo $this->getSkinUrl('images/placeholder.gif');?>" data-original="<?php echo $this->getSrc();?>" data-src="holder.js/100%x180/" alt="<?php echo $this->getshortDesc();?>" title="<?php echo $this->getTitle();?>">
+        <noscript>
+            <img src="<?php echo $this->getSrc();?>" data-src="holder.js/100%x180/" alt="<?php echo $this->getshortDesc();?>" title="<?php echo $this->getTitle();?>">
+        </noscript>
+    </div>
+</a>

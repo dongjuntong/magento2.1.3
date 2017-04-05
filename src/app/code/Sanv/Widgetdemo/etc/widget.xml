@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="sanv_widgetdemo" class="Sanv\Widgetdemo\Block\Widget\Demo">
+         <label translate="true">Hot recommend</label>
+        <description>Allows to add Image and Inquiry link</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" required="true" visible="true">
+                <label translate="true">Upload image</label>
+                <block class="Sanv\Widgetdemo\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="title" xsi:type="text" required="true" visible="true">
+                <label translate="true">Image title</label>
+            </parameter>
+            <parameter name="short_description" xsi:type="text" required="false" visible="true">
+                <label translate="true">Short Description</label>
+            </parameter>
+            <parameter name="img_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Image Link</label>
+                <description>Such as : https://www.baidu.com</description>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="false" visible="true">
+                <label translate="true">Template</label>
+                <value>Sanv_Widgetdemo::widget/demo.phtml</value>
+                <options>
+                    <option name="default" value="Sanv_Widgetdemo::widget/demo.phtml" selected="true">
+                        <label translate="true">Hot Recommend Demo Template</label>
+                    </option>
+                    <option name="newtodaydemo" value="Sanv_Widgetdemo::widget/advertisements.phtml">
+                        <label translate="true">Advertisements Template</label>
+                    </option>
+                    <option name="demo1" value="Sanv_Widgetdemo::widget/demo1.phtml">
+                        <label translate="true">Hot Recommend Demo1 Template</label>
+                    </option>
+                    <option name="demo2" value="Sanv_Widgetdemo::widget/demo2.phtml">
+                        <label translate="true">Hot Recommend Demo2 Template</label>
+                    </option>
+                    <option name="demo3" value="Sanv_Widgetdemo::widget/demo3.phtml">
+                        <label translate="true">Hot Recommend Demo3 Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
+
+
+
