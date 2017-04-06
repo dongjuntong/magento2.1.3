@@ -17,6 +17,12 @@ class Save extends \Emizentech\ShopByBrand\Controller\Adminhtml\Items
                 $model = $this->_objectManager->create('Emizentech\ShopByBrand\Model\Items');
                 $data = $this->getRequest()->getPostValue();
                 $data['attribute_id']=$this->_getAttributeId();
+                if(!$data['attribute_id']){
+                    $this->messageManager->addError(
+                        __('Please add the brand attribute first.')
+                    );
+                    return;
+                }
                 $inputFilter = new \Zend_Filter_Input(
                     [],
                     [],

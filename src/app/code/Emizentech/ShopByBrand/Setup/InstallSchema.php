@@ -72,11 +72,11 @@ class InstallSchema implements InstallSchemaInterface
             )
             ->addIndex(
                 $installer->getIdxName(
-                    'option_id',
-                    ['attribute_id'],
+                    'attribute_id',
+                    ['option_id'],
                     \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
                 ),
-                ['attribute_id'],
+                ['option_id'],
                 ['type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE]
             )
 			->setComment(

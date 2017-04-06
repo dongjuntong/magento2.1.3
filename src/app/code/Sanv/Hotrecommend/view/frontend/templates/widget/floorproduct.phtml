@@ -1,0 +1,22 @@
+<?php
+$productId = $block->productid();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$products = $objectManager->create('Magento\Catalog\Model\ProductRepository')->getById($productId[1]);
+$pricingHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
+//$imageHelper = $this->helper('Magento\Catalog\Helper\Image');
+?>
+<div class="w50 h50">
+    <a href="<?php echo $products->getProductUrl();?>" class="card card--product" title="<?php echo $products->getName();?>" alt="<?php echo $block->getanchortext();?>">
+        <div class="card-img-top">
+            <img src="<?php echo $block->getViewFileUrl('images/placeholder.gif');?>"  title="<?php echo $block->getanchortext();?>" alt="<?php echo $block->getanchortext();?>">
+<!--            <noscript>-->
+<!--                <img src="--><?php //echo $block->helper('catalog/image')->init($products, 'image');?><!--" title="--><?php //echo $block->getanchortext();?><!--" alt="--><?php //echo $block->getanchortext();?><!--">-->
+<!--            </noscript>-->
+        </div>
+        <div class="card-block">
+            <h4 class="card-title"><?php echo $products->getName();?></h4>
+            <p class="card-text"><?php echo $block->getanchortext();?></p>
+            <p class="card-price"><?php echo $pricingHelper->currency($products->getFinalPrice(), true, false);?></p>
+        </div>
+    </a>
+</div>

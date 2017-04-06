@@ -1,0 +1,19 @@
+<?php
+$productId = $this->productid();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$products = $objectManager->create('Magento\Catalog\Model\ProductRepository')->getById($productId[1]);
+?>
+<a class="card card--product" href="<?php echo $products->getProductUrl();?>">
+    <div class="card-img-top">
+        <img class="lazy" src="<?php echo $this->getSkinUrl('images/placeholder.gif');?>" data-original="<?php echo $this->helper('catalog/image')->init($products, 'image');?>" title="<?php echo $block->getanchortext();?>" alt="<?php echo $block->getanchortext();?>">
+        <noscript>
+            <img src="<?php echo $this->helper('catalog/image')->init($products, 'image');?>" title="<?php echo $this->getanchortext();?>" alt="<?php echo $this->getanchortext();?>">
+        </noscript>
+    </div>
+    <div class="card-block">
+        <h4 class="card-title"><?php echo $products->getName();?></h4>
+        <p class="card-text"><?php echo $this->getanchortext();?></p>
+        <p class="card-price"><?php echo Mage::helper('core')->currency($products->getFinalPrice(),true,false);?></p>
+    </div>
+</a>
+

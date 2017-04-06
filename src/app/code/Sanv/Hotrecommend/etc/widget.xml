@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="sanv_hotrecommand" class="Sanv\Hotrecommend\Block\Link">
+        <label translate="true">Hot Products</label>
+        <description>Link to a Specified Product</description>
+        <parameters>
+            <parameter name="id_path" xsi:type="block" required="true" visible="true">
+                <label translate="true">Product</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Select Product...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" required="true" visible="true">
+                <label translate="true">Product description</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="false" visible="true">
+                <label translate="true">Template</label>
+                <value>Sanv_Hotrecommend::widget/hotrecommend.phtml</value>
+                <options>
+                    <option name="default" value="Sanv_Hotrecommend::widget/hotrecommend.phtml" selected="true">
+                        <label translate="true">Hot Recommend Products Template</label>
+                    </option>
+                    <option name="floorproduct" value="Sanv_Hotrecommend::widget/floorproduct.phtml">
+                        <label translate="true">Floor Products Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
