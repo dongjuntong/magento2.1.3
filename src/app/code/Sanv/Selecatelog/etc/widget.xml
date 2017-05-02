@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="sanv_selecatelog" class="Sanv\Selecatelog\Block\Widget\Demo">
+        <label translate="true">Select catalog</label>
+        <description>Allows to choose the recommend secondary classification</description>
+        <parameters>
+            <parameter name="pcid" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Parent Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="cids_path" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Right Category</label>
+                <!--<block class="Magento\Cms\Block\Adminhtml\Page\Widget\Chooser">-->
+                <block class="Sanv\Selecatelog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Categories...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="false" visible="true" sort_order="20">
+                <label translate="true">Template</label>
+                <value>Sanv_Selecatelog::widget/demo.phtml</value>
+                <options>
+                    <option name="default" value="Sanv_Selecatelog::widget/demo.phtml" selected="true">
+                        <label translate="true">Category Block Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
+
+
+

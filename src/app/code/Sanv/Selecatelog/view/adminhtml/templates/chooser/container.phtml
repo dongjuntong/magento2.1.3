@@ -1,0 +1,114 @@
+<div class="chooser-container" id="categories-ids">
+    <input disabled="disabled" type="text" class="input-text entities" name="categories-selected" value="<?php echo $block->getElementValue() ?>" readonly="readonly"/>
+    <a id="widget-option-chooser" href="javascript:void(0)" title="<?php echo $block->escapeJsQuote(__('Select Categories')); ?>">
+    </a>
+    <a id="widget-hide-chooser" href="javascript:void(0)"  title="<?php echo $block->escapeJsQuote(__('Apply')); ?>">
+    </a>
+    <div id="categories-chooser"></div>
+</div>
+<script>
+    require
+    ([
+        'jquery',
+        'mage/template',
+        'Magento_Ui/js/modal/alert',
+        "prototype",
+        "extjs/ext-tree-checkbox"
+    ], function (jQuery, mageTemplate, alert)
+    {
+        var WidgetSelect = {
+            selectedItems: {},
+
+            addPage: function(data)
+            {
+                if (data.categories) {
+                    var selected_entities = data['categories'].split(',');
+                    if (selected_entities.length > 0) {
+                        for (var i = 0; i < selected_entities.length; i++) {
+                            this.addCategoriesItemToSelection(data.group, selected_entities[i]);
+                        }
+                    }
+                }
+            },
+
+            addCategoriesItemToSelection: function (groupId, item)
+            {
+                if (undefined == this.selectedItems[groupId]) {
+                    this.selectedItems[groupId] = $H({});
+                }
+                if (!isNaN(parseInt(item))) {
+                    this.selectedItems[groupId].set(item, 1);
+                }
+            },
+            removeCategoriesItemFromSelection: function (groupId, item) {
+                if (undefined !== this.selectedItems[groupId]) {
+                    this.selectedItems[groupId].unset(item);
+                }
+            },
+            checkCategories: function (event) {
+                var elm = event.memo.element,
+                    container = event.target.up('#categories-chooser'),
+                    selectionId = container.id,
+                    entitiesElm = container.up('.admin__field').down('input[type="text"].entities'),
+                    categoriesElm = container.up('.admin__field').down('#mb-categories-selected');
+                if (elm.checked) {
+                    this.addCategoriesItemToSelection(selectionId, elm.value);
+                } else {
+                    this.removeCategoriesItemFromSelection(selectionId, elm.value);
+                }
+                if (entitiesElm) {
+                    entitiesElm.value = this.selectedItems[selectionId].keys().join(',');
+                    categoriesElm.value = this.selectedItems[selectionId].keys().join(',');
+                }
+            }
+    };
+
+        jQuery('#widget-option-chooser').on('click', function ()
+        {
+            chooser = $('categories-chooser');
+            entities = chooser.up('.admin__field').down('#mb-categories-selected').value;
+            postParameters = $H({selected:entities});
+            url = '<?php echo $block->getCategoriesChooserUrl(); ?>';
+            if (chooser.innerHTML == '') {
+                new Ajax.Request(url, {
+                    method: 'post',
+                    parameters: postParameters,
+                    onSuccess: function (transport) {
+                        try {
+                            if (transport.responseText) {
+                                chooser.insert(transport.responseText);
+                                chooser.show();
+                            }
+                        } catch (e) {
+                            alert({
+                                content: 'Error occurs during loading chooser.'
+                            });
+                        }
+                    }
+                });
+            }else {
+                chooser.show();
+            }
+
+        });
+
+        jQuery('#widget-hide-chooser').on('click', function()
+        {
+            chooser = $('categories-chooser');
+            if (chooser) {
+                chooser.hide();
+            }
+        });
+
+        jQuery(function () {
+            <?php $page = $block->getPage(); ?>
+            <?php if($page): ?>
+            WidgetSelect.addPage(<?php echo Zend_Json::encode($page) ?>);
+            <?php endif; ?>
+
+            Event.observe(document, 'Categories:changed', function(event) {
+                WidgetSelect.checkCategories(event);
+            });
+        });
+    })
+</script>

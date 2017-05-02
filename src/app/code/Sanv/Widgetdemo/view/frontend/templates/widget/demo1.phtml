@@ -4,7 +4,7 @@
         <p class="card-text"><?php echo $this->getshortDesc();?></p>
     </div>
     <div class="card-img-top">
-        <img class="lazy" src="<?php echo $this->getSkinUrl('images/placeholder.gif');?>" data-original="<?php echo $this->getSrc();?>" data-src="holder.js/100%x180/" alt="<?php echo $this->getshortDesc();?>" title="<?php echo $this->getTitle();?>">
+        <img class="lazy" src="<?php echo $block->getViewFileUrl('images/placeholder.gif');?>" data-original="<?php echo $this->getSrc();?>" data-src="holder.js/100%x180/" alt="<?php echo $this->getshortDesc();?>" title="<?php echo $this->getTitle();?>">
         <noscript>
             <img src="<?php echo $this->getSrc();?>" data-src="holder.js/100%x180/" alt="<?php echo $this->getshortDesc();?>" title="<?php echo $this->getTitle();?>">
         </noscript>

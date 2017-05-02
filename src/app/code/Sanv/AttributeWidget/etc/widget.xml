@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="sanv_attributewidget" class="Sanv\AttributeWidget\Block\Attribute\Tree">
+        <label translate="true">Recommend Attribute</label>
+        <description>Allows choose multiple brands</description>
+        <parameters>
+            <parameter name="attribute_options" xsi:type="block" required="true" visible="true">
+                <label translate="true">Select Brands</label>
+                <block class="Sanv\AttributeWidget\Block\Adminhtml\Attribute\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Options...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="false" visible="true">
+                <label translate="true">Template</label>
+                <value>Sanv_AttributeWidget::widget/home-recommend-image-3col.phtml</value>
+                <options>
+                    <option name="default" value="Sanv_AttributeWidget::widget/home-recommend-image-3col.phtml" selected="true">
+                        <label translate="true">Template With Image Three</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

@@ -1,0 +1,35 @@
+<?php
+$cata = $block->getChildHtml('home-floor4-cata');
+?>
+<?php if ($cata): ?>
+    <div class="floor" id="home-floor4">
+        <div class="floor__header">
+            <?php echo $block->getChildHtml('home-floor4-cata');?>
+        </div>
+        <div class="floor__body">
+            <div class="wrapper">
+                <div class="wrapper-left">
+                    <div class="w50 h100">
+                        <div class="floor__body__slick slick "
+                             data-slick='{"slidesToShow": 1, "slidesToScroll": 1,"dots":true,"arrows":false,"autoplay":true}'>
+                            <?php echo $this->getChildHtml('home-floor4-left') ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper-middle">
+                    <?php echo $this->getChildHtml('home-floor4-middle') ?>
+                </div>
+                <div class="wrapper-right">
+                    <?php echo $this->getChildHtml('home-floor4-right') ?>
+                </div>
+            </div>
+            <div class="floor-brand">
+                <p class="title"><?php echo __('Hot Brand'); ?></p>
+                <div class="slick slick--brand"
+                     data-slick='{"slidesToShow": 4, "slidesToScroll": 1,"dots":false,"vertical":true}'>
+                    <?php echo $this->getChildHtml('recommend-attribute-list-four'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

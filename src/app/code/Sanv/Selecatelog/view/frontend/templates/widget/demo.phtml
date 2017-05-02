@@ -1,0 +1,12 @@
+<?php
+$parentCategory=$block->getParentCategory();
+$childCategories=$block->getChildCategories();
+?>
+<h2 class="title"><span><?php echo $parentCategory['name'];?></span><i class="en">/<?php echo $parentCategory['description'];?></i></h2>
+<div class="links">
+    <?php echo $childCategories; ?>
+<a href="<?php echo $parentCategory['url']; ?>" class="more fa fa-angle-right"
+   title="<?php echo $parentCategory['name']; ?>" alt="<?php echo $parentCategory['description']; ?>">
+    <?php echo __('MORE'); ?>
+</a>
+</div>

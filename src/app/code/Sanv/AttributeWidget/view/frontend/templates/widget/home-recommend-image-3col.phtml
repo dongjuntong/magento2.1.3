@@ -1,0 +1,12 @@
+<?php
+$attribute=$this->getAttribute();
+?>
+<?php if(!empty($attribute)):?>
+    <?php foreach($attribute as $k=>$v):?>
+    <a href="<?php echo $v['url'];?>" class="brand-link" title="<?php echo $v['lable'];?>" alt="<?php echo $v['lable'];?>"><img class="lazy" src="<?php echo $block->getViewFileUrl('images/placeholder.gif');?>" data-original="<?php echo $v['img'];?>" title="<?php echo $v['lable'];?>" alt="<?php echo $v['lable'];?>">
+        <noscript>
+            <img src="<?php echo $v['img'];?>" title="<?php echo $v['lable'];?>" alt="<?php echo $v['lable'];?>">
+        </noscript>
+    </a>
+    <?php endforeach;?>
+<?php endif;?>
