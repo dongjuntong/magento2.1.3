@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Sanv_Banner::banner" title="Banner" module="Sanv_Banner" sortOrder="51" resource="Sanv_Banner::banner"/>
+        <add id="Sanv_Banner::post" title="Mannger Banner" module="Sanv_Banner" sortOrder="10" action="sanv_banner/post" resource="Sanv_Banner::post" parent="Sanv_Banner::banner"/>
+    </menu>
+</config>

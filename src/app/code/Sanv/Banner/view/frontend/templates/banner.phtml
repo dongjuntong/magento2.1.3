@@ -1,0 +1,51 @@
+<?php
+$collection = $block->getDbData();
+$baseImageUrl = $block->getImageUrl();
+$baseUrl = $block->getBaseUrl();
+?>
+<div class="homeBanner slick" data-slick='{"slidesToShow": 1, "slidesToScroll": 1,"dots":true,"arrows":false,"autoplay":true}'>
+    <?php foreach ($collection as $images):?>
+        <?php if($images['name']==null):?>
+            <div class="homeBanner__item" style="background-color:<?php echo $images['background'];?>;
+            <?php if($images['featured_image']!=''):?>
+                background-image: url(<?php echo $baseImageUrl.$images['featured_image'];?>)
+            <?php endif;?>
+                ">
+                <a href="<?php echo $baseUrl.$images['url_key']; ?>" class="container intro">
+                    <div class="img imgCenter">
+                        <img src="<?php echo $baseImageUrl.$images['product_image']; ?>">
+                    </div>
+                </a>
+            </div>
+        <?php else:?>
+            <div class="homeBanner__item" style="background-color:<?php echo $images['background'];?>;
+            <?php if($images['featured_image']!=''):?>
+                background-image: url(<?php echo $baseImageUrl.$images['featured_image'];?>)
+            <?php endif;?>
+                ">
+                <a href="<?php echo $baseUrl.$images['url_key'];?>" class="container intro">
+                    <div class="img">
+                        <img
+                            src="<?php echo $baseImageUrl. $images['product_image']; ?>">
+                    </div>
+                </a>
+                <a href="<?php echo $baseUrl.$images['url_key'];?>" class="item-text" style="background-color:<?php echo $images['ds_background'];?>; box-shadow: 0 0 0 10px <?php echo $images['edge_color'];?>">
+                    <div class="desc">
+                        <p class="text"><?php echo $images['name'];?></p>
+                        <p class="text text--big"><?php echo $images['middle_name'];?></p>
+                        <p class="text"><?php echo $images['post_content'];?></p>
+                    </div>
+                </a>
+            </div>
+        <?php endif;?>
+    <?php endforeach; ?>
+</div>
+<script>// <![CDATA[
+    require([
+        'jquery',
+        'slicks'
+    ], function ($, script) {
+        $('.slick').slick();
+    });
+    // ]]>
+</script>
