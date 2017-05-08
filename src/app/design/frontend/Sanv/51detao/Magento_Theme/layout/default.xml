@@ -12,5 +12,12 @@
                 <argument name="logo_file" xsi:type="string">images/logo.png</argument>
             </arguments>
         </referenceBlock>
+        <referenceBlock name="catalog.topnav" template="Magento_Theme::html/topmenu.phtml">
+            <block class="Magento\Cms\Block\Block" name="top-menu-links">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">top-menu-links</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
     </body>
 </page>

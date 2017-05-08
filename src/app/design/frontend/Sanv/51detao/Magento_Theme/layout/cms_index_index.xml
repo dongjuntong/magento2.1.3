@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="main">
+            <block class="Sanv\Selecatelog\Block\Widget\Demo" name="home.page.floor" template="Sanv_Selecatelog::floor/homefloor.phtml">
+                <block class="Sanv\Selecatelog\Block\Widget\Demo" name="home.floor.one" template="Sanv_Selecatelog::floor/floor1.phtml">
+                    <block class="Magento\Cms\Block\Block" name="home-floor1-cata">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">home-floor1-cata</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Cms\Block\Block" name="recommend-attribute-list-one">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">recommend-attribute-list-one</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Cms\Block\Block" name="home-floor1-left">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">home-floor1-left</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Cms\Block\Block" name="home-floor1-middle">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">home-floor1-middle</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Cms\Block\Block" name="home-floor1-right">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">home-floor1-right</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
